@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="/students/add">Student Add</a>
+	
+	<img alt="aaa" src="/images/room.jpg" width="100px" height="100px">
+	<img alt="aaa" th:src="@{/images/room2.jpg}" width="100px" height="100px">
+	<h1>Students List</h1>
+
+	<div>
+		<table>
+
+			<tr th:each="student : ${students}">
+				<td th:text="${student.id}"></td>
+				<td th:text="${student.name}"></td>
+				<td th:text="${student.email}"></td>
+				<td th:text="${student.phone}"></td>
+				<td><a th:href="@{/students/update/{id}(id=${student.id})}">Edit</a></td>
+				<td><a th:href="@{/students/delete/{id}(id=${student.id})}">Delete</a></td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>
